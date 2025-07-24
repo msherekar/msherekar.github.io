@@ -1,0 +1,25 @@
+# Site settings
+title: "Mukul Sherekar"
+email: mukulsherekar@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Mukul Sherekar is bilingiual in biochemistry/biology and aritificial intelligence.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://msherekar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  mherekar
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/ 
