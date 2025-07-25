@@ -5,8 +5,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Mukul Sherekar is bilingiual in biochemistry/biology and aritificial intelligence.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://msherekar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  mherekar
-linkedin_username: mukul-sherekar
+github_username:  msherekar
+linkedin_username: mukulsherekar
 
 # Build settings
 markdown: kramdown
