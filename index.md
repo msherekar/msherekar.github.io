@@ -18,138 +18,120 @@ title: Home
             Problem-solver with strong foundation, diverse skill set and expertise in bioinformatics and AI tools. Adept at bidirectional translation between biological complexities and AI frameworks.
         </p>
     </div>
-    <div class="scroll-indicator" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
-        <div style="color: #22c55e; font-size: 2rem;">↓</div>
-    </div>
 </section>
 
-<!-- Skills Section -->
-<section class="skills-section" id="skills" style="padding: 5rem 5%; max-width: 1200px; margin: 0 auto;">
-    <h2 class="section-title" style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technical Expertise</h2>
-    <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-        <div class="skill-card fade-in-up" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
-            <span class="skill-icon bio-icon" style="font-size: 3rem; margin-bottom: 1rem; display: block; color: #22c55e;">🧬</span>
-            <h3 class="skill-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #f1f5f9;">Bioinformatics & Genomics</h3>
-            <p class="skill-description" style="color: #94a3b8; line-height: 1.6;">
-                RNA-Seq, ATAC-Seq, scRNA-seq analysis. Expertise in BLAST, ENSEMBL, UCSC Genome Browser. Experience with DNA/ProteinBERT, AlphaFold, ProteinMPNN, RFDiffusion, ESM2 models.
+<!-- Main Content Grid -->
+<div class="main-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 2rem 5%;">
+
+    <!-- Left Column -->
+    <div class="left-column">
+        <!-- About Me Section -->
+        <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+            <h2 style="color: #f1f5f9; font-size: 1.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">About Me</h2>
+            <p style="color: #94a3b8; line-height: 1.6; margin-bottom: 1rem;">
+                I'm a bioinformatician with a unique ability to bridge the gap between biological research and artificial intelligence. My journey began with a strong foundation in biotechnology, followed by specialized training in bioinformatics and machine learning.
+            </p>
+            <p style="color: #94a3b8; line-height: 1.6;">
+                Currently working at X10e, I curate RNAseq datasets and train ML models to predict gene regulation. My experience includes developing pipelines for multi-omics data analysis and creating tools that help biologists and ML engineers communicate effectively.
             </p>
         </div>
-        <div class="skill-card fade-in-up" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
-            <span class="skill-icon ai-icon" style="font-size: 3rem; margin-bottom: 1rem; display: block; color: #3b82f6;">🤖</span>
-            <h3 class="skill-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #f1f5f9;">Machine Learning & AI</h3>
-            <p class="skill-description" style="color: #94a3b8; line-height: 1.6;">
-                Transformers, CNN, GNN, Autoencoders, GAN, Diffusion Models, LLM. PyTorch, TensorFlow, Scikit-Learn. Experience with ConvNeXtV1, transfer learning, and model optimization.
-            </p>
-        </div>
-        <div class="skill-card fade-in-up" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
-            <span class="skill-icon bridge-icon" style="font-size: 3rem; margin-bottom: 1rem; display: block; color: #f59e0b;">💻</span>
-            <h3 class="skill-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #f1f5f9;">Programming & Tools</h3>
-            <p class="skill-description" style="color: #94a3b8; line-height: 1.6;">
-                Python, R, Bash, Perl, Jupyter Notebooks. Docker, AWS, SLURM, Snakemake. CI/CD, GitHub. MySQL, MongoDB. Biopython, Cobra, Plotly.
-            </p>
+
+        <!-- Skills Section -->
+        <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+            <h2 style="color: #f1f5f9; font-size: 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technical Skills</h2>
+            <div class="skills-list">
+                <div class="skill-category" style="margin-bottom: 1.5rem;">
+                    <h3 style="color: #22c55e; font-size: 1.1rem; margin-bottom: 0.5rem;">🧬 Bioinformatics & Genomics</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">RNA-Seq, ATAC-Seq, scRNA-seq, BLAST, ENSEMBL, UCSC Genome Browser, DNA/ProteinBERT, AlphaFold, ProteinMPNN</p>
+                </div>
+                <div class="skill-category" style="margin-bottom: 1.5rem;">
+                    <h3 style="color: #3b82f6; font-size: 1.1rem; margin-bottom: 0.5rem;">🤖 Machine Learning & AI</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Transformers, CNN, GNN, Autoencoders, GAN, Diffusion Models, LLM, PyTorch, TensorFlow, Scikit-Learn</p>
+                </div>
+                <div class="skill-category" style="margin-bottom: 1.5rem;">
+                    <h3 style="color: #f59e0b; font-size: 1.1rem; margin-bottom: 0.5rem;">💻 Programming & Tools</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Python, R, Bash, Perl, Docker, AWS, SLURM, Snakemake, CI/CD, GitHub, MySQL, MongoDB, Biopython</p>
+                </div>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- Experience Section -->
-<section class="experience-section" id="experience" style="padding: 5rem 5%; background: rgba(15, 23, 42, 0.5);">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title" style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Professional Experience</h2>
-        <div class="experience-grid" style="display: grid; gap: 2rem; max-width: 800px; margin: 0 auto;">
-            <div class="experience-card" style="background: rgba(30, 41, 59, 0.8); border-radius: 15px; padding: 2rem; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <h3 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 0.5rem;">Bioinformatics & Machine Learning Engineer</h3>
-                <p style="color: #22c55e; font-size: 1rem; margin-bottom: 1rem;">X10e • 04/25 - Current</p>
-                <ul style="color: #94a3b8; line-height: 1.6;">
-                    <li>Curate RNAseq datasets and train ML models to predict gene regulation</li>
-                    <li>Build scripts/tools for bioinformatic data analysis</li>
-                    <li>Explain biology to ML engineers and machine learning to biologists</li>
+    <!-- Right Column -->
+    <div class="right-column">
+        <!-- Experience Section -->
+        <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+            <h2 style="color: #f1f5f9; font-size: 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Experience</h2>
+            <div class="experience-item" style="margin-bottom: 1.5rem;">
+                <h3 style="color: #f1f5f9; font-size: 1.1rem; margin-bottom: 0.3rem;">Bioinformatics & ML Engineer</h3>
+                <p style="color: #22c55e; font-size: 0.9rem; margin-bottom: 0.5rem;">X10e • 04/25 - Current</p>
+                <ul style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4; padding-left: 1rem;">
+                    <li>Curate RNAseq datasets and train ML models</li>
+                    <li>Build bioinformatic analysis tools</li>
+                    <li>Bridge communication between biologists and ML engineers</li>
                 </ul>
             </div>
-            <div class="experience-card" style="background: rgba(30, 41, 59, 0.8); border-radius: 15px; padding: 2rem; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <h3 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 0.5rem;">ORISE Research Fellow</h3>
-                <p style="color: #22c55e; font-size: 1rem; margin-bottom: 1rem;">Food & Drug Administration • 07/24 - 12/24</p>
-                <ul style="color: #94a3b8; line-height: 1.6;">
-                    <li>Engineered data preprocessing pipelines for multiple mammography datasets</li>
-                    <li>Designed transfer learning experiments using ConvNeXtV1 with image augmentation</li>
-                    <li>Optimized CNN models through hyperparameter tuning and performance evaluation</li>
+            <div class="experience-item" style="margin-bottom: 1rem;">
+                <h3 style="color: #f1f5f9; font-size: 1.1rem; margin-bottom: 0.3rem;">ORISE Research Fellow</h3>
+                <p style="color: #22c55e; font-size: 0.9rem; margin-bottom: 0.5rem;">FDA • 07/24 - 12/24</p>
+                <ul style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4; padding-left: 1rem;">
+                    <li>Engineered mammography data preprocessing pipelines</li>
+                    <li>Designed transfer learning experiments with ConvNeXtV1</li>
+                    <li>Optimized CNN models through hyperparameter tuning</li>
                 </ul>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Projects Section -->
-<section class="projects-preview" id="projects" style="padding: 5rem 5%;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 class="section-title" style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Featured Projects</h2>
-        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 2rem auto 0;">
-            <div class="project-card" style="background: rgba(30, 41, 59, 0.8); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #22c55e, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">🧬</div>
-                <div class="project-content" style="padding: 1.5rem;">
-                    <h3 class="project-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: #f1f5f9;">Virtual Cell Challenge</h3>
-                    <p class="project-description" style="color: #94a3b8; font-size: 0.9rem;">
-                        Predict effects of perturbation in held out cell type. Translate biology (scRNAseq data) into graph embeddings to design encoders.
-                    </p>
-                </div>
+        <!-- Projects Section -->
+        <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 2rem; margin-bottom: 2rem;">
+            <h2 style="color: #f1f5f9; font-size: 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Projects</h2>
+            <div class="project-item" style="margin-bottom: 1.5rem;">
+                <h3 style="color: #f1f5f9; font-size: 1.1rem; margin-bottom: 0.3rem;">🧬 Virtual Cell Challenge</h3>
+                <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4;">Predict effects of perturbation in held out cell type. Translate scRNAseq data into graph embeddings.</p>
             </div>
-            <div class="project-card" style="background: rgba(30, 41, 59, 0.8); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #22c55e, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">🌐</div>
-                <div class="project-content" style="padding: 1.5rem;">
-                    <h3 class="project-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: #f1f5f9;">Ecosystem: Model Context Protocol</h3>
-                    <p class="project-description" style="color: #94a3b8; font-size: 0.9rem;">
-                        Scalable MCP architecture enabling addition of new analysis techniques while maintaining unified agent access and context awareness.
-                    </p>
-                </div>
+            <div class="project-item" style="margin-bottom: 1.5rem;">
+                <h3 style="color: #f1f5f9; font-size: 1.1rem; margin-bottom: 0.3rem;">🌐 Ecosystem: Model Context Protocol</h3>
+                <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4;">Scalable MCP architecture for unified agent access and context awareness in analysis workflows.</p>
             </div>
-            <div class="project-card" style="background: rgba(30, 41, 59, 0.8); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <div class="project-image" style="height: 200px; background: linear-gradient(135deg, #22c55e, #3b82f6); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">🎓</div>
-                <div class="project-content" style="padding: 1.5rem;">
-                    <h3 class="project-title" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: #f1f5f9;">Education</h3>
-                    <p class="project-description" style="color: #94a3b8; font-size: 0.9rem;">
-                        MS Bioinformatics (Johns Hopkins), MBiot Biotechnology (Texas A&M), BTech Biotechnology (VIT). Courses in AI, ML, Systems Biology.
-                    </p>
-                </div>
+            <div class="project-item" style="margin-bottom: 1rem;">
+                <h3 style="color: #f1f5f9; font-size: 1.1rem; margin-bottom: 0.3rem;">🎓 Education</h3>
+                <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4;">MS Bioinformatics (Johns Hopkins), MBiot Biotechnology (Texas A&M), BTech Biotechnology (VIT)</p>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- Contact Section -->
-<section class="contact-section" id="contact" style="padding: 5rem 5%; text-align: center;">
-    <h2 class="section-title" style="text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Let's Connect</h2>
-    <p style="max-width: 600px; margin: 0 auto; color: #94a3b8; font-size: 1.1rem;">
-        Interested in collaborating on projects that bridge AI and biology? Let's discuss how we can work together.
-    </p>
-    <div class="contact-links" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
-        <a href="mailto:mukulsherekar@gmail.com" class="contact-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+<section class="contact-section" id="contact" style="padding: 3rem 5%; text-align: center; background: rgba(15, 23, 42, 0.5);">
+    <h2 class="section-title" style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 2rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Let's Connect</h2>
+    <div class="contact-links" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="mailto:mukulsherekar@gmail.com" class="contact-link" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             📧 Email
         </a>
-        <a href="https://github.com/msherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+        <a href="https://github.com/msherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             💻 GitHub
         </a>
-        <a href="https://linkedin.com/in/mukulsherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+        <a href="https://linkedin.com/in/mukulsherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             💼 LinkedIn
         </a>
-        <a href="https://medium.com/me/stories/public" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+        <a href="https://medium.com/me/stories/public" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             ✍️ Blog
         </a>
-        <a href="{{ site.baseurl }}/assets/documents/Bioinformatics_07262025.pdf" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+        <a href="{{ site.baseurl }}/assets/documents/Bioinformatics_07262025.pdf" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             📄 Resume
         </a>
     </div>
 </section>
 
 <style>
-/* Additional styles for hover effects */
-.skill-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(34, 197, 94, 0.4);
-    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.1);
+/* Hover effects */
+.section-card {
+    transition: all 0.3s ease;
 }
 
-.project-card:hover {
+.section-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 0 15px 30px rgba(34, 197, 94, 0.1);
 }
 
 .contact-link:hover {
@@ -158,24 +140,11 @@ title: Home
     box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
 }
 
-.experience-card {
-    transition: all 0.3s ease;
-}
-
-.experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
+/* Responsive design */
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
 
@@ -185,13 +154,14 @@ title: Home
         align-items: center;
     }
     
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .main-grid {
+        padding: 1rem 3%;
     }
-    
-    .experience-grid {
-        grid-template-columns: 1fr;
-    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
 }
 </style>
 
