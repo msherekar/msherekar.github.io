@@ -4,19 +4,26 @@ title: Home
 ---
 
 <!-- Hero Section -->
-<section class="hero" id="home" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 5%; position: relative;">
-    <div class="hero-content" style="max-width: 800px; animation: fadeInUp 1s ease-out;">
-        <div class="hero-image" style="width: 200px; height: 200px; border-radius: 50%; margin: 0 auto 2rem; border: 4px solid transparent; background: linear-gradient(45deg, #22c55e, #3b82f6); padding: 4px; position: relative; overflow: hidden;">
-            <img src="{{ site.baseurl }}/assets/images/Profile_Buenos_Aires.jpg" alt="Mukul Sherekar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #1e293b;" onerror="this.style.display='none'">
+<section class="hero" id="home" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 5%; position: relative;">
+    <div class="hero-content" style="max-width: 1200px; width: 100%; display: flex; align-items: center; gap: 4rem; animation: fadeInUp 1s ease-out;">
+        <!-- Left Side - Image -->
+        <div class="hero-image-container" style="flex-shrink: 0;">
+            <div class="hero-image" style="width: 300px; height: 300px; border-radius: 50%; border: 4px solid transparent; background: linear-gradient(45deg, #22c55e, #3b82f6); padding: 4px; position: relative; overflow: hidden;">
+                <img src="{{ site.baseurl }}/assets/images/Profile_Buenos_Aires.jpg" alt="Mukul Sherekar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #1e293b;" onerror="this.style.display='none'">
+            </div>
         </div>
-        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, #ffffff, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mukul Sherekar</h1>
-        <p class="hero-subtitle" style="font-size: 1.5rem; color: #94a3b8; margin-bottom: 2rem;">AI-Proficient Bioinformatician</p>
-        <div class="bilingual-tag" style="display: inline-block; background: linear-gradient(45deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2)); border: 1px solid rgba(34, 197, 94, 0.3); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 1.1rem; margin: 1rem 0; backdrop-filter: blur(10px);">
-            🧬 Bilingual in AI × Biology 🤖
+        
+        <!-- Right Side - Text Content -->
+        <div class="hero-text" style="flex: 1; text-align: left;">
+            <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, #ffffff, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mukul Sherekar</h1>
+            <p class="hero-subtitle" style="font-size: 1.5rem; color: #94a3b8; margin-bottom: 2rem;">AI-Proficient Bioinformatician</p>
+            <div class="bilingual-tag" style="display: inline-block; background: linear-gradient(45deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2)); border: 1px solid rgba(34, 197, 94, 0.3); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 1.1rem; margin: 1rem 0; backdrop-filter: blur(10px);">
+                🧬 Bilingual in AI × Biology 🤖
+            </div>
+            <p style="max-width: 600px; margin: 2rem 0; color: #94a3b8; font-size: 1.1rem; line-height: 1.6;">
+                Problem-solver with strong foundation, diverse skill set and expertise in bioinformatics and AI tools. Adept at bidirectional translation between biological complexities and AI frameworks.
+            </p>
         </div>
-        <p style="max-width: 600px; margin: 2rem auto; color: #94a3b8; font-size: 1.1rem;">
-            Problem-solver with strong foundation, diverse skill set and expertise in bioinformatics and AI tools. Adept at bidirectional translation between biological complexities and AI frameworks.
-        </p>
     </div>
 </section>
 
@@ -149,6 +156,21 @@ title: Home
 }
 
 @media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-image {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    .hero-text {
+        text-align: center !important;
+    }
+    
     .contact-links {
         flex-direction: column;
         align-items: center;
