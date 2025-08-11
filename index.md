@@ -4,7 +4,7 @@ title: Home
 ---
 
 <!-- Main Layout Container -->
-<div class="main-layout" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem 3%; min-height: 100vh; align-items: start;">
+<div class="main-layout" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 2rem; width: 100%; padding: 2rem 2%; min-height: 100vh; align-items: start;">
 
     <!-- Hero Section (Top Left) -->
     <section class="hero" id="home" style="display: flex; align-items: flex-start; justify-content: flex-start; position: relative;">
@@ -150,7 +150,7 @@ title: Home
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         gap: 1.5rem;
-        padding: 2rem 3%;
+        padding: 2rem 2%;
     }
     
     .hero {
@@ -178,7 +178,7 @@ title: Home
     .main-layout {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto;
-        padding: 1rem 3%;
+        padding: 1rem 2%;
         gap: 1.5rem;
     }
     
