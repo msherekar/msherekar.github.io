@@ -19,12 +19,11 @@ title: Home
             <!-- Text content below image -->
             <div class="hero-text" style="text-align: left; width: 100%;">
                 <h1 class="hero-title" style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 0.8rem; background: linear-gradient(45deg, #ffffff, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Mukul Sherekar</h1>
-                <p class="hero-subtitle" style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 1rem;">AI-Proficient Bioinformatician</p>
                 <div class="bilingual-tag" style="display: inline-block; background: linear-gradient(45deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2)); border: 1px solid rgba(34, 197, 94, 0.3); padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.9rem; margin-bottom: 1rem; backdrop-filter: blur(10px);">
                     Bilingual in AI × Biology
                 </div>
                 <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5;">
-                    Problem-solver with strong foundation, diverse skill set and expertise in bioinformatics and AI tools.
+                    Interested in applying deep learning to protein designing and omics problems.
                 </p>
             </div>
         </div>
@@ -34,20 +33,18 @@ title: Home
     <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
         <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">About Me</h2>
         <p style="color: #94a3b8; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">
-            I'm a bioinformatician with a unique ability to bridge the gap between biological research and artificial intelligence. My journey began with a strong foundation in biotechnology, followed by specialized training in bioinformatics and machine learning.
+            I have an unique ability to bridge the gap between biological research and artificial intelligence. My journey began with a strong foundation in biotechnology, followed by 14 years of working as a protein biochemist and then training in bioinformatics and machine learning.
         </p>
-        <p style="color: #94a3b8; line-height: 1.5; font-size: 0.9rem;">
-            Currently working at X10e, I curate RNAseq datasets and train ML models to predict gene regulation. My experience includes developing pipelines for multi-omics data analysis.
-        </p>
+
     </div>
 
-    <!-- Technical Skills Section (Top Right) -->
+    <!-- Technical Skills Section (Top Right)
     <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
         <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1.2rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technical Skills</h2>
         <div class="skills-list">
             <div class="skill-category" style="margin-bottom: 1.2rem;">
-                <h3 style="color: #22c55e; font-size: 1rem; margin-bottom: 0.4rem;">🧬 Bioinformatics & Genomics</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">RNA-Seq, ATAC-Seq, scRNA-seq, BLAST, ENSEMBL, UCSC Genome Browser, DNA/ProteinBERT, AlphaFold</p>
+                <h3 style="color: #22c55e; font-size: 1rem; margin-bottom: 0.4rem;">🧬 Bioinformatics</h3>
+                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">RNA-Seq, ATAC-Seq, scRNA-seq, BLAST, ENSEMBL, UCSC Genome Browser, DNA/ProteinBERT</p>
             </div>
             <div class="skill-category" style="margin-bottom: 1.2rem;">
                 <h3 style="color: #3b82f6; font-size: 1rem; margin-bottom: 0.4rem;">🤖 Machine Learning & AI</h3>
@@ -58,32 +55,10 @@ title: Home
                 <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">Python, R, Bash, Docker, AWS, SLURM, Snakemake, CI/CD, GitHub, MongoDB</p>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Experience Section (Bottom Left) -->
-    <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem; grid-column: 1 / 3;">
-        <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1.2rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Experience</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-            <div class="experience-item">
-                <h3 style="color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem;">Bioinformatics & ML Engineer</h3>
-                <p style="color: #22c55e; font-size: 0.85rem; margin-bottom: 0.5rem;">X10e • 04/25 - Current</p>
-                <ul style="color: #94a3b8; font-size: 0.8rem; line-height: 1.3; padding-left: 1rem;">
-                    <li>Curate RNAseq datasets and train ML models</li>
-                    <li>Build bioinformatic analysis tools</li>
-                    <li>Bridge communication between biologists and ML engineers</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3 style="color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem;">ORISE Research Fellow</h3>
-                <p style="color: #22c55e; font-size: 0.85rem; margin-bottom: 0.5rem;">FDA • 07/24 - 12/24</p>
-                <ul style="color: #94a3b8; font-size: 0.8rem; line-height: 1.3; padding-left: 1rem;">
-                    <li>Engineered mammography data preprocessing pipelines</li>
-                    <li>Designed transfer learning experiments with ConvNeXtV1</li>
-                    <li>Optimized CNN models through hyperparameter tuning</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Projects Section (Bottom Right) -->
     <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
