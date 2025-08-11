@@ -39,21 +39,7 @@ title: Home
     </div>
 
     <!-- Technical Skills Section (Top Right)
-    <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
-        <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1.2rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Technical Skills</h2>
-        <div class="skills-list">
-            <div class="skill-category" style="margin-bottom: 1.2rem;">
-                <h3 style="color: #22c55e; font-size: 1rem; margin-bottom: 0.4rem;">🧬 Bioinformatics</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">RNA-Seq, ATAC-Seq, scRNA-seq, BLAST, ENSEMBL, UCSC Genome Browser, DNA/ProteinBERT</p>
-            </div>
-            <div class="skill-category" style="margin-bottom: 1.2rem;">
-                <h3 style="color: #3b82f6; font-size: 1rem; margin-bottom: 0.4rem;">🤖 Machine Learning & AI</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">Transformers, CNN, GNN, Autoencoders, GAN, Diffusion Models, PyTorch, TensorFlow</p>
-            </div>
-            <div class="skill-category" style="margin-bottom: 1rem;">
-                <h3 style="color: #f59e0b; font-size: 1rem; margin-bottom: 0.4rem;">💻 Programming & Tools</h3>
-                <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.4;">Python, R, Bash, Docker, AWS, SLURM, Snakemake, CI/CD, GitHub, MongoDB</p>
-            </div>
+
         </div>
     </div> -->
 
@@ -61,21 +47,7 @@ title: Home
 
 
     <!-- Projects Section (Bottom Right) -->
-    <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
-        <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1.2rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Projects</h2>
-        <div class="project-item" style="margin-bottom: 1.2rem;">
-            <h3 style="color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem;">🧬 Virtual Cell Challenge</h3>
-            <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.3;">Predict effects of perturbation in held out cell type. Translate scRNAseq data into graph embeddings.</p>
-        </div>
-        <div class="project-item" style="margin-bottom: 1.2rem;">
-            <h3 style="color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem;">🌐 Ecosystem: MCP</h3>
-            <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.3;">Scalable MCP architecture for unified agent access and context awareness in analysis workflows.</p>
-        </div>
-        <div class="project-item" style="margin-bottom: 1rem;">
-            <h3 style="color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem;">🎓 Education</h3>
-            <p style="color: #94a3b8; font-size: 0.8rem; line-height: 1.3;">MS Bioinformatics (Johns Hopkins), MBiot Biotechnology (Texas A&M), BTech Biotechnology (VIT)</p>
-        </div>
-    </div>
+
 
 </div>
 
