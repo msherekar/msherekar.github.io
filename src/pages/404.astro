@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="404 — Mukul Sherekar">
+  <Header />
+  <main style="position:relative;z-index:1;padding-top:64px;min-height:70vh;display:flex;align-items:center">
+    <div class="container" style="text-align:center;padding-top:4rem;padding-bottom:4rem">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:5rem;font-weight:900;line-height:1;background:var(--grad-nc-full);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">404</p>
+      <h1 style="font-size:1.5rem;margin:1rem 0 0.5rem">Page not found</h1>
+      <p style="color:var(--text-2);margin-bottom:2rem">This residue is not in the structure.</p>
+      <a href="/" class="btn-primary">Back to home</a>
+    </div>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,240 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+type Category = 'Protein AI' | 'ML Systems' | 'Omics' | 'Wet Lab';
+
+interface Project {
+  name: string;
+  category: Category;
+  desc: string;
+  detail: string;
+  url: string;
+  chips: string[];
+}
+
+const projects: Project[] = [
+  {
+    name: 'CART',
+    category: 'Protein AI',
+    desc: 'Fine-tuning ESM-2 on synthetically generated CAR-T sequences to predict cytotoxicity.',
+    detail: 'Reimplements a BioRxiv method (Biswas et al.) whose authors never released code. Generates synthetic training data via combinatorial sequence mutation, fine-tunes ESM-2 with a regression head, and benchmarks against published cytotoxicity assays.',
+    url: 'https://github.com/msherekar/CART',
+    chips: ['ESM-2','PyTorch','CAR-T','Transformers','Synthetic Data'],
+  },
+  {
+    name: 'PyFlame',
+    category: 'ML Systems',
+    desc: 'A tensor library targeting Cerebras wafer-scale hardware as an alternative to the CUDA/PyTorch stack.',
+    detail: 'Implements core tensor operations (matmul, conv, activation, autograd) from scratch, compiling to Cerebras SDK primitives. Avoids CUDA entirely — designed for the deterministic, wafer-scale execution model.',
+    url: 'https://github.com/msherekar/PyFlame',
+    chips: ['Cerebras','Tensor Lib','Python','Hardware ML'],
+  },
+  {
+    name: 'Finetuning-ESM',
+    category: 'Protein AI',
+    desc: 'Systematic fine-tuning framework for ESM protein language models on downstream biological tasks.',
+    detail: 'LoRA and full fine-tuning recipes for ESM-1b/ESM-2 across stability prediction, functional site annotation, and remote homology detection. Includes ablations on layer freezing strategies.',
+    url: 'https://github.com/msherekar/Finetuning-ESM',
+    chips: ['ESM','LoRA','Protein LMs','PyTorch'],
+  },
+  {
+    name: 'Protein Embeddings',
+    category: 'Protein AI',
+    desc: 'Comparative study of protein language model embeddings on functional classification tasks.',
+    detail: 'Benchmarks ESM-1b, ESM-2, ProtTrans, and custom fine-tuned variants. Evaluates mean-pooled vs. residue-level representations across GO-term prediction, enzyme class, and subcellular localization.',
+    url: 'https://github.com/msherekar/Protein_Embeddings',
+    chips: ['ESM','ProtTrans','Scikit-learn','Embeddings'],
+  },
+  {
+    name: 'DEGCNN',
+    category: 'Omics',
+    desc: 'Differential-expression + graph convolutional network for multi-omics biomarker discovery.',
+    detail: 'Combines edgeR-based DEG selection with a GCN operating on protein-protein interaction networks. Jointly models transcriptomics and proteomics for pathway-aware biomarker identification.',
+    url: 'https://github.com/msherekar/DEGCNN',
+    chips: ['GCN','PyTorch','Multi-omics','PPI Networks'],
+  },
+  {
+    name: 'hGSMM',
+    category: 'Omics',
+    desc: 'Human genome-scale metabolic model curation and constraint-based flux analysis.',
+    detail: 'Curates Recon3D with tissue-specific expression data, solves FBA/FVA problems via COBRApy, and identifies synthetic lethal gene pairs relevant to cancer metabolism.',
+    url: 'https://github.com/msherekar/hGSMM',
+    chips: ['COBRApy','FBA','Metabolic Modeling','Python'],
+  },
+  {
+    name: 'ATAC-Seq Pipeline',
+    category: 'Omics',
+    desc: 'End-to-end ATAC-seq processing: QC → alignment → peak calling → differential accessibility.',
+    detail: 'Snakemake workflow covering Trimmomatic, Bowtie2, MACS3 peak calling, and DESeq2 differential analysis. Produces reproducible chromatin accessibility profiles from raw FASTQ.',
+    url: 'https://github.com/msherekar/ATAC-Seq',
+    chips: ['Snakemake','MACS3','DESeq2','Bioinformatics'],
+  },
+  {
+    name: 'bulkRNASeq',
+    category: 'Omics',
+    desc: 'Bulk RNA-seq pipeline with STAR alignment, featureCounts, and DESeq2 differential expression.',
+    detail: 'Reproducible pipeline parameterized for multiple organisms. Includes automated pathway enrichment (ClusterProfiler), volcano plots, and interactive HTML reports.',
+    url: 'https://github.com/msherekar/bulkRNASeq',
+    chips: ['STAR','DESeq2','R','RNA-seq'],
+  },
+  {
+    name: 'Protein Biochemistry (bench)',
+    category: 'Wet Lab',
+    desc: 'Expression, purification, and biophysical characterization of NF1, pyocin fiber, and AccD6 proteins.',
+    detail: 'SEC-MALS (NF1 dimer, Kd ~20 nM), X-ray crystallography (4 PDB depositions), SPR, ITC, and enzyme kinetics. Structural work at NCI-Frederick (FNLCR) and Texas A&M (Sacchettini lab).',
+    url: 'https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22value%22%3A%22sherekar%22%7D%7D%7D',
+    chips: ['SEC-MALS','X-ray Cryst.','SPR','ITC','FPLC'],
+  },
+];
+
+const categories: Category[] = ['Protein AI', 'ML Systems', 'Omics', 'Wet Lab'];
+const catColors: Record<Category, string> = {
+  'Protein AI':  'var(--n-color)',
+  'ML Systems':  'var(--mid-color)',
+  'Omics':       'var(--c-color)',
+  'Wet Lab':     '#a855f7',
+};
+const catBg: Record<Category, string> = {
+  'Protein AI':  'rgba(59,130,246,0.1)',
+  'ML Systems':  'rgba(34,197,94,0.1)',
+  'Omics':       'rgba(249,115,22,0.1)',
+  'Wet Lab':     'rgba(168,85,247,0.1)',
+};
+---
+<Base title="Work — Mukul Sherekar" description="Projects and research by Mukul Sherekar in protein AI, ML systems, and bioinformatics.">
+  <Header />
+  <main style="position:relative;z-index:1;padding-top:64px;">
+    <div class="container section">
+
+      <div class="reveal">
+        <span class="section-label">Open Source &amp; Research</span>
+        <h1 class="section-heading">Work</h1>
+        <p class="section-sub">
+          Projects span protein AI, custom ML infrastructure, multi-omics, and wet-lab structural biology.
+          Each computational project links to code on GitHub.
+        </p>
+      </div>
+
+      <!-- Category filter -->
+      <div class="filter-bar reveal" id="filter-bar">
+        <button class="filter-btn active" data-cat="all">All</button>
+        {categories.map(c => (
+          <button class="filter-btn" data-cat={c} style={`--cat-color:${catColors[c]}`}>{c}</button>
+        ))}
+      </div>
+
+      <!-- Wet↔Dry axis meter -->
+      <div class="axis-meter reveal">
+        <span class="axis-label" style="color:#a855f7">Wet lab</span>
+        <div class="axis-bar">
+          <div class="axis-fill"></div>
+          <div class="axis-marker" style="left:62%"></div>
+        </div>
+        <span class="axis-label" style="color:var(--n-color)">Dry / AI</span>
+        <p class="axis-note">Current focus ~62% computational, 38% bench-informed</p>
+      </div>
+
+      <!-- Project cards -->
+      <div class="projects-grid" id="projects-grid">
+        {projects.map(p => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener"
+            class="card project-card reveal"
+            data-cat={p.category}
+          >
+            <div class="proj-header">
+              <span class="proj-tag" style={`color:${catColors[p.category]};background:${catBg[p.category]}`}>
+                {p.category}
+              </span>
+            </div>
+            <h2 class="proj-name">{p.name}</h2>
+            <p class="proj-desc">{p.desc}</p>
+            <p class="proj-detail">{p.detail}</p>
+            <div class="chip-group">
+              {p.chips.map(c => <span class="chip">{c}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .filter-btn {
+    padding: 0.38rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+    border: 1px solid var(--border-2); color: var(--text-2);
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { color: var(--text); border-color: var(--border-2); }
+  .filter-btn.active {
+    background: var(--cat-color, var(--n-color));
+    border-color: var(--cat-color, var(--n-color));
+    color: #fff;
+  }
+  .filter-btn[data-cat="all"].active { background: var(--grad-nc); border-color: transparent; }
+
+  .axis-meter {
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem; position: relative;
+  }
+  .axis-label { font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+  .axis-bar {
+    flex: 1; min-width: 160px; height: 6px;
+    background: var(--border-2); border-radius: 6px; position: relative;
+  }
+  .axis-fill {
+    position: absolute; inset-block: 0; left: 0; width: 62%;
+    background: var(--grad-nc); border-radius: 6px;
+  }
+  .axis-marker {
+    position: absolute; top: -4px; width: 14px; height: 14px;
+    background: var(--text); border-radius: 50%; border: 3px solid var(--bg);
+    transform: translateX(-50%);
+  }
+  .axis-note {
+    width: 100%; font-size: 0.75rem; color: var(--text-3); margin-top: -0.3rem;
+  }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .project-card.hidden { display: none; }
+
+  .proj-header { margin-bottom: 0.5rem; }
+  .proj-tag {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 0.18rem 0.55rem; border-radius: 5px;
+  }
+  .proj-name { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.4rem; }
+  .proj-desc { font-size: 0.88rem; color: var(--text-2); margin-bottom: 0.5rem; }
+  .proj-detail { font-size: 0.81rem; color: var(--text-3); line-height: 1.6; margin-bottom: 0.2rem; }
+
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const bar = document.getElementById('filter-bar')!;
+  const grid = document.getElementById('projects-grid')!;
+
+  bar.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('.filter-btn') as HTMLButtonElement | null;
+    if (!btn) return;
+    const cat = btn.dataset.cat!;
+
+    bar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    grid.querySelectorAll<HTMLElement>('.project-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.classList.toggle('hidden', !show);
+    });
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="container footer-inner">
+    <p class="footer-copy">© {year} Mukul Sherekar · Built from a protein fiber.</p>
+    <div class="footer-links">
+      <a href="mailto:mukulsherekar@gmail.com" aria-label="Email">Email</a>
+      <a href="https://github.com/msherekar" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <a href="https://linkedin.com/in/mukulsherekar" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://medium.com/@mukulsherekar" target="_blank" rel="noopener" aria-label="Blog">Blog</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    margin-top: 4rem;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { color: var(--text-3); font-size: 0.82rem; }
+  .footer-links {
+    display: flex; gap: 1.5rem;
+  }
+  .footer-links a {
+    color: var(--text-3); font-size: 0.82rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text); }
+</style>

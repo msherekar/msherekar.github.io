@@ -1,0 +1,195 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StructureCanvas from '../components/StructureCanvas.astro';
+import SequenceBar from '../components/SequenceBar.astro';
+
+const projects = [
+  { name: 'CART', tag: 'Protein AI', desc: 'Fine-tuning ESM-2 on synthetically generated CAR-T sequences to predict cytotoxicity. Reimplements a BioRxiv method whose authors never released code.', url: 'https://github.com/msherekar/CART', chips: ['ESM-2','PyTorch','CAR-T'] },
+  { name: 'PyFlame', tag: 'ML Systems', desc: 'A tensor library targeting Cerebras wafer-scale hardware as a PyTorch-independent stack — avoids CUDA entirely.', url: 'https://github.com/msherekar/PyFlame', chips: ['Cerebras','Tensor Lib','Python'] },
+  { name: 'Protein Embeddings', tag: 'Bioinformatics', desc: 'Comparative study of ESM, ProtTrans, and custom fine-tuned embeddings on functional classification tasks.', url: 'https://github.com/msherekar/Protein_Embeddings', chips: ['ESM','ProtTrans','Scikit-learn'] },
+  { name: 'DEGCNN', tag: 'Genomics', desc: 'Differential-expression + graph convolutional network pipeline for identifying biomarker signatures from multi-omics data.', url: 'https://github.com/msherekar/DEGCNN', chips: ['GCN','Genomics','PyTorch'] },
+];
+---
+<Base title="Mukul Sherekar — Protein Design × AI">
+  <Header />
+
+  <main style="position:relative;z-index:1;padding-top:64px;">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero-section container">
+      <div class="hero-text">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Mukul<br/><span class="grad-text-full">Sherekar</span></h1>
+        <p class="hero-tagline">
+          14 years at the bench → AI engineer. I build deep learning tools for
+          protein design and multi-omics — from first-author structures to
+          production pipelines.
+        </p>
+        <div class="hero-tags">
+          <span class="htag">Protein Design</span>
+          <span class="htag">Deep Learning</span>
+          <span class="htag">Bioinformatics</span>
+          <span class="htag">Structural Biology</span>
+        </div>
+        <div class="hero-actions">
+          <a href="/work" class="btn-primary">View Projects</a>
+          <a href="/publications" class="btn-outline">Publications</a>
+        </div>
+        <SequenceBar />
+      </div>
+      <StructureCanvas />
+    </section>
+
+    <!-- ═══ STATS BAR ═══ -->
+    <div class="stats-bar container reveal">
+      <div class="stat-item">
+        <span class="stat-n grad-text">14+</span>
+        <span class="stat-d">Years biochemistry</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-n" style="background:var(--grad-mc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">5</span>
+        <span class="stat-d">Publications</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-n grad-text-full">4</span>
+        <span class="stat-d">PDB depositions</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat-item">
+        <span class="stat-n" style="color:var(--c-color)">9+</span>
+        <span class="stat-d">Open-source repos</span>
+      </div>
+    </div>
+
+    <!-- ═══ SELECTED PROJECTS ═══ -->
+    <section class="section container reveal">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-heading">Projects</h2>
+      <p class="section-sub">Real repos, real results. Each links to code on GitHub.</p>
+      <div class="projects-grid">
+        {projects.map(p => (
+          <a href={p.url} target="_blank" rel="noopener" class="card project-card">
+            <span class="proj-tag">{p.tag}</span>
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+            <div class="chip-group">
+              {p.chips.map(c => <span class="chip">{c}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a href="/work" class="btn-outline">All projects →</a>
+      </div>
+    </section>
+
+    <!-- ═══ PUBLICATIONS TEASER ═══ -->
+    <section class="section container reveal" style="padding-top:0">
+      <span class="section-label">Peer-Reviewed</span>
+      <h2 class="section-heading">Selected Publications</h2>
+      <div class="pub-list">
+        <div class="pub-item">
+          <span class="pub-year">2020</span>
+          <div>
+            <p class="pub-title">Biochemical and structural analyses reveal that the tumor suppressor neurofibromin (NF1) forms a high-affinity dimer</p>
+            <p class="pub-journal">Journal of Biological Chemistry · <strong>First author</strong> · McCormick &amp; Esposito labs, NCI RAS Initiative</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2019</span>
+          <div>
+            <p class="pub-title">Structure of the Pseudomonas aeruginosa pyocin S5 tail fiber and its receptor-binding domain</p>
+            <p class="pub-journal">PLOS ONE · PDB: 6CU2, 6CT8 (2.58 Å)</p>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2014</span>
+          <div>
+            <p class="pub-title">Structure and inhibition of Mycobacterium tuberculosis AccD6, a biotin carboxylase</p>
+            <p class="pub-journal">Antimicrobial Agents &amp; Chemotherapy · Sacchettini lab, Texas A&amp;M · PDB: 4G2R, 4FB8</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem">
+        <a href="/publications" class="btn-outline">Full publication list →</a>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  /* ── Hero ── */
+  .hero-section {
+    display: flex; align-items: center; gap: 4rem;
+    padding-top: 5rem; padding-bottom: 4rem;
+    min-height: 88vh;
+  }
+  .hero-text { flex: 1; min-width: 0; }
+  .hero-greeting { color: var(--mid-color); font-weight: 600; font-size: 0.92rem; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .hero-name {
+    font-size: clamp(2.4rem,5.5vw,4rem); font-weight: 900;
+    letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 1rem;
+  }
+  .hero-tagline { font-size: 1.08rem; color: var(--text-2); max-width: 500px; margin-bottom: 1.6rem; line-height: 1.75; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+  .htag {
+    padding: 0.3rem 0.85rem; border-radius: 50px; font-size: 0.78rem; font-weight: 500;
+    color: var(--n-color); border: 1px solid rgba(59,130,246,0.25); background: rgba(59,130,246,0.06);
+  }
+  .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 0; margin-bottom: 4rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.4rem 2rem;
+  }
+  .stat-item { text-align: center; padding: 0 2rem; }
+  .stat-n { font-size: 2.2rem; font-weight: 900; display: block; }
+  .stat-d { color: var(--text-2); font-size: 0.82rem; display: block; margin-top: 0.2rem; }
+  .stat-div { width: 1px; height: 40px; background: var(--border-2); }
+
+  /* ── Projects grid ── */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .project-card { display: block; }
+  .project-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0.6rem 0 0.4rem; }
+  .project-card p { color: var(--text-2); font-size: 0.88rem; line-height: 1.65; }
+  .proj-tag {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--mid-color);
+    background: rgba(34,197,94,0.1); padding: 0.18rem 0.5rem; border-radius: 5px;
+  }
+
+  /* ── Publications teaser ── */
+  .pub-list { display: flex; flex-direction: column; gap: 0.9rem; }
+  .pub-item {
+    display: flex; gap: 1.2rem; padding: 1rem 1.2rem;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  }
+  .pub-year {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    color: var(--n-color); font-weight: 600; white-space: nowrap; padding-top: 0.1rem;
+    min-width: 36px;
+  }
+  .pub-title { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--text); }
+  .pub-journal { font-size: 0.82rem; color: var(--text-2); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .hero-section { flex-direction: column; gap: 2.5rem; align-items: flex-start; min-height: auto; padding-top: 3rem; }
+  }
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .stats-bar { gap: 1.5rem; }
+    .stat-div { display: none; }
+    .stat-item { padding: 0 1rem; }
+    .pub-item { flex-direction: column; gap: 0.3rem; }
+  }
+</style>

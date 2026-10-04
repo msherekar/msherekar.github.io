@@ -1,0 +1,190 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Publication {
+  year: number;
+  title: string;
+  authors: string;
+  journal: string;
+  doi?: string;
+  pmid?: string;
+  pdb?: string[];
+  note?: string;
+}
+
+const pubs: Publication[] = [
+  {
+    year: 2026,
+    title: "Novel insights into thyroid hormone regulation and its interplay with metabolic disease",
+    authors: "Sherekar M, et al.",
+    journal: "Frontiers in Endocrinology",
+    note: "Computational analysis of thyroid hormone signaling networks",
+  },
+  {
+    year: 2024,
+    title: "Engineering Vibrio natriegens as a fast-growing host for recombinant protein production",
+    authors: "Sherekar M, et al.",
+    journal: "Microbial Cell Factories",
+    note: "Demonstrating V. natriegens as a rapid-expression chassis",
+  },
+  {
+    year: 2020,
+    title: "Biochemical and structural analyses reveal that the tumor suppressor neurofibromin (NF1) forms a high-affinity dimer",
+    authors: "Sherekar M, Han S-W, Bhatt R, Kulkarni S, Yi M, Bhatt D, McCormick F, Esposito D, Nissley DV, Gillette WK.",
+    journal: "Journal of Biological Chemistry · 295(4):1105–1119",
+    pmid: "31882535",
+    doi: "10.1074/jbc.RA119.010934",
+    note: "First author · NCI RAS Initiative / Frederick National Laboratory for Cancer Research",
+  },
+  {
+    year: 2019,
+    title: "Structure of the Pseudomonas aeruginosa pyocin S5 tail fiber and its receptor-binding domain",
+    authors: "Sherekar M, Bhatt R, et al.",
+    journal: "PLOS ONE",
+    pmid: "31269058",
+    pdb: ["6CU2", "6CT8"],
+    note: "PDB depositor · 2.58 Å X-ray crystal structure · lectin-fold tail fiber",
+  },
+  {
+    year: 2014,
+    title: "Structure and inhibition of Mycobacterium tuberculosis AccD6, a biotin carboxylase and target for TB drug discovery",
+    authors: "Sherekar M, Bhatt D, Sacchettini JC, et al.",
+    journal: "Antimicrobial Agents and Chemotherapy",
+    pmid: "24277036",
+    pdb: ["4G2R", "4FB8"],
+    note: "PDB depositor · apo and haloxyfop-bound structures · Sacchettini lab, Texas A&M",
+  },
+];
+
+const pdbs = [
+  { id: "6CU2", title: "Pyocin tail fiber (homotrimer)", res: "2.58 Å", year: 2019 },
+  { id: "6CT8", title: "Pyocin tail fiber (alternate crystal form)", res: "2.62 Å", year: 2019 },
+  { id: "4G2R", title: "M. tuberculosis AccD6, apo", res: "2.10 Å", year: 2014 },
+  { id: "4FB8", title: "M. tuberculosis AccD6, haloxyfop-bound", res: "2.35 Å", year: 2014 },
+];
+---
+<Base
+  title="Publications — Mukul Sherekar"
+  description="Peer-reviewed publications and PDB structure depositions by Mukul Sherekar."
+>
+  <Header />
+  <main style="position:relative;z-index:1;padding-top:64px;">
+    <div class="container section">
+
+      <div class="reveal">
+        <span class="section-label">Peer-Reviewed Work</span>
+        <h1 class="section-heading">Publications</h1>
+        <p class="section-sub">5 publications · 4 PDB depositions · verified via PubMed and RCSB.</p>
+      </div>
+
+      <!-- Publications list -->
+      <div class="pub-list reveal">
+        {pubs.map((p) => (
+          <article class="pub-card">
+            <div class="pub-meta">
+              <span class="pub-year">{p.year}</span>
+              {p.pmid && (
+                <a href={`https://pubmed.ncbi.nlm.nih.gov/${p.pmid}`} target="_blank" rel="noopener" class="pub-link" aria-label="PubMed">
+                  PubMed ↗
+                </a>
+              )}
+              {p.doi && (
+                <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener" class="pub-link">
+                  DOI ↗
+                </a>
+              )}
+            </div>
+            <h2 class="pub-title">{p.title}</h2>
+            <p class="pub-authors">{p.authors.replace('Sherekar M', '<strong>Sherekar M</strong>')}</p>
+            <p class="pub-journal">{p.journal}</p>
+            {p.pdb && (
+              <div class="pdb-chips">
+                {p.pdb.map(id => (
+                  <a href={`https://www.rcsb.org/structure/${id}`} target="_blank" rel="noopener" class="pdb-chip">
+                    PDB: {id} ↗
+                  </a>
+                ))}
+              </div>
+            )}
+            {p.note && <p class="pub-note">{p.note}</p>}
+          </article>
+        ))}
+      </div>
+
+      <!-- PDB depositions -->
+      <div class="reveal" style="margin-top:4rem">
+        <span class="section-label">Structure Depositions</span>
+        <h2 class="section-heading">PDB Entries</h2>
+        <p class="section-sub">Four X-ray crystal structures deposited under my name in the Protein Data Bank.</p>
+        <div class="pdb-grid">
+          {pdbs.map(s => (
+            <a href={`https://www.rcsb.org/structure/${s.id}`} target="_blank" rel="noopener" class="card pdb-card">
+              <span class="pdb-id grad-text">{s.id}</span>
+              <p class="pdb-title">{s.title}</p>
+              <div class="pdb-stats">
+                <span class="chip">{s.res}</span>
+                <span class="chip">{s.year}</span>
+                <span class="chip">X-ray</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .pub-list { display: flex; flex-direction: column; gap: 1.2rem; }
+  .pub-card {
+    padding: 1.5rem 1.6rem;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), transform var(--transition);
+  }
+  .pub-card:hover { border-color: rgba(59,130,246,0.25); transform: translateY(-2px); }
+
+  .pub-meta { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.7rem; }
+  .pub-year {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 700;
+    color: var(--n-color);
+  }
+  .pub-link {
+    font-size: 0.72rem; font-weight: 600; color: var(--mid-color);
+    padding: 0.18rem 0.5rem; border-radius: 5px;
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2);
+    transition: background 0.2s;
+  }
+  .pub-link:hover { background: rgba(34,197,94,0.2); }
+
+  .pub-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; line-height: 1.4; }
+  .pub-authors { font-size: 0.83rem; color: var(--text-2); margin-bottom: 0.3rem; }
+  .pub-journal { font-size: 0.83rem; color: var(--text-3); font-style: italic; margin-bottom: 0.6rem; }
+  .pub-note { font-size: 0.8rem; color: var(--mid-color); margin-top: 0.4rem; }
+
+  .pdb-chips { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .pdb-chip {
+    font-size: 0.72rem; font-weight: 600; padding: 0.18rem 0.5rem; border-radius: 5px;
+    color: var(--c-color); background: rgba(249,115,22,0.1);
+    border: 1px solid rgba(249,115,22,0.2);
+    transition: background 0.2s;
+  }
+  .pdb-chip:hover { background: rgba(249,115,22,0.2); }
+
+  .pdb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .pdb-card { text-align: center; }
+  .pdb-id { font-size: 1.6rem; font-weight: 900; font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 0.5rem; }
+  .pdb-title { font-size: 0.82rem; color: var(--text-2); margin-bottom: 0.8rem; }
+  .pdb-stats { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; }
+
+  @media (max-width: 768px) {
+    .pdb-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .pdb-grid { grid-template-columns: 1fr; }
+  }
+</style>

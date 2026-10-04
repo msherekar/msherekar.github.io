@@ -1,0 +1,242 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Role {
+  title: string;
+  org: string;
+  location: string;
+  dates: string;
+  desc: string;
+  color: string;
+}
+
+const roles: Role[] = [
+  {
+    title: 'AI / Bioinformatics Engineer',
+    org: 'X10e',
+    location: 'Remote',
+    dates: '2024 – Present',
+    desc: 'Applying deep learning to protein engineering and multi-omics analysis. Building custom algorithms and fine-tuning protein language models (ESM-2, ProtTrans) for biological discovery.',
+    color: 'var(--n-color)',
+  },
+  {
+    title: 'ORISE Research Fellow',
+    org: 'U.S. Food and Drug Administration (FDA)',
+    location: 'Silver Spring, MD',
+    dates: '2022 – 2024',
+    desc: 'Computational and wet-lab characterization of biopharmaceutical protein aggregation. Developed bioinformatics pipelines for regulatory science.',
+    color: 'var(--mid-color)',
+  },
+  {
+    title: 'Protein Biochemist / Research Scientist',
+    org: 'Frederick National Laboratory for Cancer Research (FNLCR) — NCI RAS Initiative',
+    location: 'Frederick, MD',
+    dates: '2018 – 2022',
+    desc: 'Structural and biochemical characterization of RAS pathway proteins. First-author J. Biol. Chem. paper demonstrating that NF1 forms a high-affinity dimer (Kd ~20 nM) — a previously unknown oligomeric state. SEC-MALS, X-ray crystallography, SPR, ITC.',
+    color: 'var(--mid-color)',
+  },
+  {
+    title: 'Research Scientist III',
+    org: 'Texas A&M University — Sacchettini Lab',
+    location: 'College Station, TX',
+    dates: '2010 – 2018',
+    desc: 'Protein expression, purification, and crystallography. Deposited structures of M. tuberculosis AccD6 (PDB: 4G2R, 4FB8) and R. aeruginosa pyocin tail fiber (PDB: 6CU2, 6CT8). Drug-target validation for TB therapeutics.',
+    color: 'var(--c-color)',
+  },
+];
+
+interface Degree {
+  degree: string;
+  field: string;
+  institution: string;
+  year: string;
+  note?: string;
+}
+
+const education: Degree[] = [
+  {
+    degree: 'M.S.',
+    field: 'Bioinformatics',
+    institution: 'Johns Hopkins University',
+    year: '2025',
+    note: 'Advanced Academics Program',
+  },
+  {
+    degree: 'M.Biotech.',
+    field: 'Biotechnology',
+    institution: 'Texas A&M University',
+    year: '2010',
+  },
+  {
+    degree: 'B.Tech.',
+    field: 'Biotechnology',
+    institution: 'VIT University (Vellore Institute of Technology)',
+    year: '2008',
+  },
+];
+
+const skills = {
+  'Protein AI': ['Protein Language Models', 'ESM-2 / ESM-1b', 'AlphaFold2 / ESMFold', 'ProteinMPNN', 'RFDiffusion', 'Fine-tuning (LoRA)', 'Geometric Deep Learning'],
+  'ML & Programming': ['PyTorch', 'Python', 'Scikit-learn', 'NumPy / Pandas', 'Bash / Shell', 'Git', 'Snakemake'],
+  'Structural Biology': ['X-ray Crystallography', 'SEC-MALS', 'FPLC / HPLC', 'SPR', 'ITC', 'Enzyme Kinetics', 'Protein Purification'],
+  'Bioinformatics': ['RNA-seq / DESeq2', 'ATAC-seq', 'Metabolic Modeling (FBA)', 'Multi-omics Integration', 'Variant Analysis'],
+};
+---
+<Base title="About — Mukul Sherekar" description="Career, education, and skills of Mukul Sherekar — protein biochemist turned AI engineer.">
+  <Header />
+  <main style="position:relative;z-index:1;padding-top:64px;">
+    <div class="container section">
+
+      <!-- Intro -->
+      <div class="about-intro reveal">
+        <div class="about-photo-col">
+          <div class="about-photo-ring">
+            <img src="/images/profile.jpg" alt="Mukul Sherekar" width="260" height="260" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-bio">
+          <span class="section-label">About</span>
+          <h1 class="section-heading">Mukul Sherekar</h1>
+          <p>
+            I have a unique ability to bridge the gap between biological research and artificial intelligence.
+            My journey began with a B.Tech in Biotechnology, continued through
+            <strong>14 years as a protein biochemist</strong> at Texas A&amp;M, the NCI RAS Initiative, and the FDA,
+            and is now focused on applying deep learning to protein engineering and multi-omics problems.
+          </p>
+          <p style="margin-top:0.9rem">
+            I've deposited four X-ray crystal structures in the PDB and published five peer-reviewed papers —
+            including a first-author <em>J. Biol. Chem.</em> paper with Frank McCormick and Dominic Esposito
+            showing that the tumor suppressor NF1 forms a high-affinity dimer.
+            That kind of claim, verified at the bench, is what I now try to make with algorithms.
+          </p>
+          <div style="display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.5rem">
+            <a href="/publications" class="btn-primary">Publications</a>
+            <a href="/work" class="btn-outline">Projects</a>
+            <a href="assets/documents/Bioinformatics_07262025.pdf" target="_blank" rel="noopener" class="btn-outline">Download CV</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience timeline -->
+      <div class="reveal" style="margin-top:4rem">
+        <span class="section-label">Career</span>
+        <h2 class="section-heading">Experience</h2>
+        <div class="timeline">
+          {roles.map(r => (
+            <div class="tl-item">
+              <div class="tl-dot" style={`background:${r.color};box-shadow:0 0 10px ${r.color}55`}></div>
+              <div class="card tl-card">
+                <div class="tl-header">
+                  <div>
+                    <h3>{r.title}</h3>
+                    <p class="tl-org" style={`color:${r.color}`}>{r.org}</p>
+                    <p class="tl-loc">{r.location}</p>
+                  </div>
+                  <span class="tl-date">{r.dates}</span>
+                </div>
+                <p class="tl-desc">{r.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="reveal" style="margin-top:4rem">
+        <span class="section-label">Education</span>
+        <h2 class="section-heading">Degrees</h2>
+        <div class="edu-grid">
+          {education.map(e => (
+            <div class="card edu-card">
+              <span class="edu-degree grad-text">{e.degree}</span>
+              <p class="edu-field">{e.field}</p>
+              <p class="edu-inst">{e.institution}</p>
+              <p class="edu-year">{e.year}{e.note ? ` · ${e.note}` : ''}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="reveal" style="margin-top:4rem">
+        <span class="section-label">Technical Stack</span>
+        <h2 class="section-heading">Skills</h2>
+        <div class="skills-grid">
+          {Object.entries(skills).map(([cat, items]) => (
+            <div class="card">
+              <h3 class="skill-cat">{cat}</h3>
+              <div class="skill-list">
+                {items.map(s => <span class="skill-item">{s}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  /* About intro */
+  .about-intro { display: flex; gap: 3.5rem; align-items: flex-start; }
+  .about-photo-col { flex-shrink: 0; }
+  .about-photo-ring {
+    width: 200px; height: 200px; border-radius: 50%; padding: 3px;
+    background: var(--grad-nc-full);
+    box-shadow: 0 0 50px rgba(59,130,246,0.15);
+  }
+  .about-photo-ring img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .about-bio p { color: var(--text-2); line-height: 1.8; font-size: 1rem; }
+  .about-bio strong { color: var(--text); }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; border-radius: 2px;
+    background: linear-gradient(to bottom, var(--n-color), var(--mid-color), var(--c-color), var(--text-3));
+  }
+  .tl-item { position: relative; margin-bottom: 1.4rem; }
+  .tl-dot {
+    position: absolute; left: -2rem; top: 1.5rem;
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 3px solid var(--bg); z-index: 1;
+  }
+  .tl-card { flex: 1; }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .tl-header h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.15rem; }
+  .tl-org { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.1rem; }
+  .tl-loc { font-size: 0.8rem; color: var(--text-3); }
+  .tl-date { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-3); white-space: nowrap; }
+  .tl-desc { font-size: 0.88rem; color: var(--text-2); line-height: 1.65; }
+
+  /* Education */
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .edu-card { text-align: center; }
+  .edu-degree { font-size: 1.8rem; font-weight: 900; display: block; margin-bottom: 0.3rem; }
+  .edu-field { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .edu-inst { font-size: 0.82rem; color: var(--text-2); margin-bottom: 0.15rem; }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-3); }
+
+  /* Skills */
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .skill-cat { font-size: 0.88rem; font-weight: 700; color: var(--mid-color); margin-bottom: 0.9rem; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-item {
+    padding: 0.3rem 0.7rem; border-radius: var(--radius-sm);
+    font-size: 0.78rem; font-weight: 500; color: var(--text-2);
+    background: rgba(148,163,184,0.06); border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .skill-item:hover { border-color: rgba(59,130,246,0.3); color: var(--text); background: rgba(59,130,246,0.06); }
+
+  @media (max-width: 768px) {
+    .about-intro { flex-direction: column; gap: 2rem; }
+    .about-photo-ring { width: 160px; height: 160px; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
