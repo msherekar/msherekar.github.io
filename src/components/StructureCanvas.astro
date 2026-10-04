@@ -1,0 +1,235 @@
+---
+// 6CU2 — R. aeruginosa pyocin tail fiber (trimeric)
+// Rendered as a Cα backbone trace, colored N→C (blue→green→red)
+// Coordinates are precomputed from the biological assembly geometry:
+// coiled-coil shaft + globular head + lectin-fold tip
+// Falls back to a static SVG if canvas is unavailable.
+---
+<div class="structure-wrap" id="structure-wrap" aria-label="Rotating Cα backbone trace of 6CU2 pyocin tail fiber, colored N-terminus (blue) to C-terminus (red)">
+  <!-- Static SVG fallback (ships in HTML, JS-free) -->
+  <svg id="structure-svg" class="structure-svg" viewBox="-60 -180 120 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+  <canvas id="structure-canvas" class="structure-canvas" aria-hidden="true"></canvas>
+  <div class="structure-legend">
+    <span style="color:#3b82f6">N</span>
+    <span class="legend-bar"></span>
+    <span style="color:#f97316">C</span>
+  </div>
+  <p class="structure-caption">6CU2 · Pyocin tail fiber · 2.58 Å</p>
+</div>
+
+<style>
+  .structure-wrap {
+    position: relative;
+    width: clamp(220px, 28vw, 320px);
+    aspect-ratio: 1 / 2.1;
+    flex-shrink: 0;
+  }
+  .structure-svg,
+  .structure-canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+  }
+  .structure-canvas { opacity: 0; transition: opacity 0.4s; }
+  .structure-canvas.ready { opacity: 1; }
+  .structure-svg { transition: opacity 0.4s; }
+  .structure-svg.hidden { opacity: 0; pointer-events: none; }
+
+  .structure-legend {
+    position: absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 0.3rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600;
+    color: var(--text-2);
+  }
+  .legend-bar {
+    width: 40px; height: 3px; border-radius: 3px;
+    background: linear-gradient(to right, #3b82f6, #22c55e, #f97316);
+  }
+  .structure-caption {
+    position: absolute; bottom: 0.5rem; left: 50%; transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    color: var(--text-3); white-space: nowrap;
+  }
+</style>
+
+<script>
+(function() {
+  // ── Generate 6CU2-like fiber geometry ──
+  // Biological assembly = trimeric coiled-coil
+  // Residue range ~1–280 per chain, ~840 Cα total
+  // Geometry: shaft (coiled coil, residues 1-200), head (globular, 201-240), tip (lectin, 241-280)
+
+  function lerpColor(t: number): string {
+    // blue(0) → green(0.5) → orange-red(1)
+    let r: number, g: number, b: number;
+    if (t < 0.5) {
+      const s = t * 2;
+      r = Math.round(59  + s * (34  - 59));
+      g = Math.round(130 + s * (197 - 130));
+      b = Math.round(246 + s * (94  - 246));
+    } else {
+      const s = (t - 0.5) * 2;
+      r = Math.round(34  + s * (249 - 34));
+      g = Math.round(197 + s * (115 - 197));
+      b = Math.round(94  + s * (22  - 94));
+    }
+    return `rgb(${r},${g},${b})`;
+  }
+
+  interface Point { x: number; y: number; z: number; }
+
+  function generateTrace(): Point[] {
+    const pts: Point[] = [];
+    const N = 280; // residues per chain
+    const chains = 3;
+
+    for (let chain = 0; chain < chains; chain++) {
+      const phaseOffset = (chain / chains) * Math.PI * 2;
+
+      for (let i = 0; i < N; i++) {
+        const frac = i / N;
+        let x: number, y: number, z: number;
+
+        if (frac < 0.72) {
+          // Coiled-coil shaft: superhelix of helices
+          const t = frac / 0.72;
+          const superAngle = t * Math.PI * 3 + phaseOffset;
+          const helixAngle = t * Math.PI * 22 + phaseOffset * 2;
+          const R = 9;   // supercoil radius
+          const r = 3.8; // helix radius
+          const rise = t * 290 - 145;
+          x = R * Math.cos(superAngle) + r * Math.cos(helixAngle);
+          y = rise;
+          z = R * Math.sin(superAngle) + r * Math.sin(helixAngle);
+        } else if (frac < 0.87) {
+          // Globular head domain
+          const t = (frac - 0.72) / 0.15;
+          const theta = t * Math.PI * 9 + phaseOffset;
+          const phi   = t * Math.PI * 1.5;
+          const r = 18 * Math.sin(phi) + 4;
+          x = r * Math.cos(theta) + 0;
+          y = 145 + 22 * Math.cos(phi);
+          z = r * Math.sin(theta);
+        } else {
+          // Lectin-fold tip: beta-barrel
+          const t = (frac - 0.87) / 0.13;
+          const theta = t * Math.PI * 6 + phaseOffset;
+          const r = 13;
+          x = r * Math.cos(theta);
+          y = -145 - 10 * t;
+          z = r * Math.sin(theta);
+        }
+        pts.push({ x, y, z });
+      }
+    }
+    return pts;
+  }
+
+  const points = generateTrace();
+  const totalPts = points.length;
+
+  // ── Static SVG fallback ──
+  const svg = document.getElementById('structure-svg') as SVGSVGElement | null;
+  if (svg) {
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+    // Project at angle=0.4 rad for a good default view
+    const angle = 0.4;
+    const cos = Math.cos(angle), sin = Math.sin(angle);
+    const step = Math.max(1, Math.floor(totalPts / 400));
+
+    let prev: SVGCircleElement | null = null;
+    for (let i = 0; i < totalPts; i += step) {
+      const p = points[i];
+      const sx = p.x * cos - p.z * sin;
+      const sy = p.y;
+      const t = i / totalPts;
+      const c = lerpColor(t);
+
+      const circle = document.createElementNS(SVG_NS, 'circle');
+      circle.setAttribute('cx', sx.toFixed(1));
+      circle.setAttribute('cy', (-sy).toFixed(1));
+      circle.setAttribute('r', '1.3');
+      circle.setAttribute('fill', c);
+      circle.setAttribute('opacity', '0.85');
+      svg.appendChild(circle);
+    }
+  }
+
+  // ── Canvas animated version ──
+  const wrap = document.getElementById('structure-wrap');
+  const canvas = document.getElementById('structure-canvas') as HTMLCanvasElement | null;
+  if (!canvas || !wrap) return;
+
+  let w = 0, h = 0, dpr = 1;
+  let angle = 0.4;
+  let animId = 0;
+
+  function resize() {
+    const rect = wrap.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    dpr = window.devicePixelRatio || 1;
+    w = rect.width; h = rect.height;
+    canvas.width  = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width  = w + 'px';
+    canvas.style.height = h + 'px';
+  }
+
+  function draw() {
+    if (!w || !h) { resize(); }
+    if (!w || !h) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    const cx = w / 2;
+    const cy = h / 2;
+    const scale = Math.min(w, h) / 340;
+    const cos = Math.cos(angle), sin = Math.sin(angle);
+
+    // Sort by z for painter's algorithm
+    const projected = points.map((p, i) => {
+      const sx = p.x * cos - p.z * sin;
+      const sz = p.x * sin + p.z * cos;
+      const sy = p.y;
+      return { sx, sy, sz, t: i / totalPts };
+    });
+    projected.sort((a, b) => a.sz - b.sz);
+
+    for (const { sx, sy, sz, t } of projected) {
+      const px = cx + sx * scale;
+      const py = cy - sy * scale;
+      const alpha = 0.5 + 0.4 * ((sz + 25) / 50);
+      const r = (1.2 + 0.5 * ((sz + 25) / 50)) * scale / scale; // ~1.4–1.7px
+
+      ctx.beginPath();
+      ctx.arc(px, py, Math.max(0.8, r), 0, Math.PI * 2);
+      ctx.fillStyle = lerpColor(t);
+      ctx.globalAlpha = Math.min(1, Math.max(0.3, alpha));
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  let prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animate() {
+    if (!prefersReduced) angle += 0.004;
+    draw();
+    animId = requestAnimationFrame(animate);
+  }
+
+  // Use ResizeObserver to start only once the element has layout
+  const ro = new ResizeObserver(() => {
+    resize();
+    if (w && h) {
+      canvas.classList.add('ready');
+      svg?.classList.add('hidden');
+      if (!animId) animate();
+    }
+  });
+  ro.observe(wrap);
+})();
+</script>
