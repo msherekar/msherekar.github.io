@@ -33,7 +33,7 @@ title: Home
     <div class="section-card" style="background: rgba(30, 41, 59, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 20px; padding: 1.8rem;">
         <h2 style="color: #f1f5f9; font-size: 1.3rem; margin-bottom: 1rem; background: linear-gradient(45deg, #22c55e, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">About Me</h2>
         <p style="color: #94a3b8; line-height: 1.5; margin-bottom: 1rem; font-size: 0.9rem;">
-            I have an unique ability to bridge the gap between biological research and artificial intelligence. My journey began with a strong foundation in biotechnology, followed by 14 years of working as a protein biochemist and then training in bioinformatics and machine learning.
+            I have a unique ability to bridge the gap between biological research and artificial intelligence. My journey began with a strong foundation in biotechnology, followed by 14 years of working as a protein biochemist and then training in bioinformatics and machine learning.
         </p>
 
     </div>
@@ -64,7 +64,7 @@ title: Home
         <a href="https://linkedin.com/in/mukulsherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             💼 LinkedIn
         </a>
-        <a href="https://medium.com/me/stories/public" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
+        <a href="https://medium.com/@mukulsherekar" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
             ✍️ Blog
         </a>
         <a href="{{ site.baseurl }}/assets/documents/Bioinformatics_07262025.pdf" class="contact-link" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 50px; color: #e2e8f0; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(10px); font-size: 0.9rem;">
