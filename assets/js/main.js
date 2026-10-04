@@ -9,10 +9,14 @@
     const header = document.getElementById('site-header');
 
     /* ── Mobile Menu Toggle ── */
-    hamburger.addEventListener('click', () => {
+    function toggleMenu() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('open');
         document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    }
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
